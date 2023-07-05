@@ -47,10 +47,10 @@ Example Response
      "file3.json"
    ]
 
-File Sample Action
+2. Get File Sample
 ------------------
 
-2. Retrieve a sample of a file.
+Retrieve a sample of a file.
 
 .. _endpoint-1:
 
