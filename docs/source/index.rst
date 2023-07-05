@@ -39,7 +39,13 @@ Response
 Example Response
 ^^^^^^^^^^^^^^^^
 
-\```json [ “file1.txt”, “file2.csv”, “file3.json”]
+.. code:: json
+
+   [
+     "file1.txt",
+     "file2.csv",
+     "file3.json"
+   ]
 
 File Sample Action
 ------------------
@@ -81,7 +87,9 @@ Response
 Example Response
 ^^^^^^^^^^^^^^^^
 
-\``json “This is a sample of the file content.”
+.. code:: json
+
+   "This is a sample of the file content."
 
 Get All Files Action
 --------------------
@@ -115,13 +123,34 @@ Response
 Example Response
 ^^^^^^^^^^^^^^^^
 
-\```json [ { “file_id”: “1”, “file_name”: “file1.txt”, “extension”:
-“txt”, “numberOfRows”: 100, “file_size”: 1024, “clean”: true, “joined”:
-false, “created_on”: “2023-07-05T10:00:00Z”, “parent_id”: null,
-“file_index”: 0 }, { “file_id”: “2”, “file_name”: “file2.csv”,
-“extension”: “csv”, “numberOfRows”: 500, “file_size”: 2048, “clean”:
-false, “joined”: true, “created_on”: “2023-07-05T11:00:00Z”,
-“parent_id”: “1”, “file_index”: 1 }]
+.. code:: json
+
+   [
+     {
+       "file_id": "1",
+       "file_name": "file1.txt",
+       "extension": "txt",
+       "numberOfRows": 100,
+       "file_size": 1024,
+       "clean": true,
+       "joined": false,
+       "created_on": "2023-07-05T10:00:00Z",
+       "parent_id": null,
+       "file_index": 0
+     },
+     {
+       "file_id": "2",
+       "file_name": "file2.csv",
+       "extension": "csv",
+       "numberOfRows": 500,
+       "file_size": 2048,
+       "clean": false,
+       "joined": true,
+       "created_on": "2023-07-05T11:00:00Z",
+       "parent_id": "1",
+       "file_index": 1
+     }
+   ]
 
 Get File Action
 ---------------
@@ -159,10 +188,20 @@ Response
 Example Response
 ^^^^^^^^^^^^^^^^
 
-\```json { “file_id”: “1”, “file_name”: “file1.txt”, “extension”: “txt”,
-“numberOfRows”: 100, “file_size”: 1024, “clean”: true, “joined”: false,
-“created_on”: “2023-07-05T10:00:00Z”, “parent_id”: null, “file_index”: 0
-}
+.. code:: json
+
+   {
+     "file_id": "1",
+     "file_name": "file1.txt",
+     "extension": "txt",
+     "numberOfRows": 100,
+     "file_size": 1024,
+     "clean": true,
+     "joined": false,
+     "created_on": "2023-07-05T10:00:00Z",
+     "parent_id": null,
+     "file_index": 0
+   }
 
 Get All Columns Action
 ----------------------
@@ -196,7 +235,23 @@ Response
 Example Response
 ^^^^^^^^^^^^^^^^
 
-\```json [ { “column_id”: “1”, “column_name”: “column1”, “partition”:
-“partition_key”, “ordering”: 1, “aggregate_on”: true, “display”: true },
-{ “column_id”: “2”, “column_name”: “column2”, “partition”: null,
-“ordering”: null, “aggregate_on”: false, “display”: true }]
+.. code:: json
+
+   [
+     {
+       "column_id": "1",
+       "column_name": "column1",
+       "partition": "partition_key",
+       "ordering": 1,
+       "aggregate_on": true,
+       "display": true
+     },
+     {
+       "column_id": "2",
+       "column_name": "column2",
+       "partition": null,
+       "ordering": null,
+       "aggregate_on": false,
+       "display": true
+     }
+   ]
