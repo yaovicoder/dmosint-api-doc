@@ -15,7 +15,7 @@ Table of Contents
 
 --------------
 
-Raw Files Action
+1. Get Raw Files List
 ----------------
 
 Return list of files to be imported.
@@ -50,7 +50,7 @@ Example Response
 File Sample Action
 ------------------
 
-Retrieve a sample of a file.
+2. Retrieve a sample of a file.
 
 .. _endpoint-1:
 
@@ -91,7 +91,7 @@ Example Response
 
    "This is a sample of the file content."
 
-Get All Files Action
+3. Get All Files 
 --------------------
 
 Retrieve all files sorted by name.
@@ -152,7 +152,7 @@ Example Response
      }
    ]
 
-Get File Action
+4. Get File
 ---------------
 
 Retrieve a file by its ID.
@@ -203,7 +203,7 @@ Example Response
      "file_index": 0
    }
 
-Get All Columns Action
+5. Get All Columns Action
 ----------------------
 
 Retrieve all columns sorted by name.
