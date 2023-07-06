@@ -15,7 +15,7 @@ Table of Contents
 
 --------------
 
-1. Get Raw Files List
+1. Get raw files list
 ----------------
 
 Return list of files to be imported.
@@ -47,7 +47,7 @@ Example Response
      "file3.json"
    ]
 
-2. Get File Sample
+2. Get file sample
 ------------------
 
 Retrieve a sample of a file.
@@ -91,7 +91,7 @@ Example Response
 
    "This is a sample of the file content."
 
-3. Get All Files 
+3. Get all files 
 --------------------
 
 Retrieve all files sorted by name.
@@ -152,7 +152,7 @@ Example Response
      }
    ]
 
-4. Get File
+4. Get a file
 ---------------
 
 Retrieve a file by its ID.
@@ -203,7 +203,7 @@ Example Response
      "file_index": 0
    }
 
-5. Get All Columns Action
+5. Get all columns
 ----------------------
 
 Retrieve all columns sorted by name.
