@@ -139,7 +139,7 @@ To get the list of all imported files sorted by name, you can use the following 
 
 .. code:: bash
 
-   curl -X GET http://ip_address:9000/api/v1/get-columns-all
+   curl -X GET http://ip_address:9000/api/v1/get-files-all
 
 .. _response-3:
 
@@ -252,6 +252,17 @@ Parameters
 ~~~~~~~~~~
 
 None
+
+.. _usage-5:
+
+Usage
+~~~~~
+
+To get the list of all columns sorted by name, you can use the following example cURL command:
+
+.. code:: bash
+
+   curl -X GET http://ip_address:9000/api/v1/get-columns-all
 
 .. _response-5:
 
