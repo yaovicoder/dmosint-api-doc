@@ -296,6 +296,29 @@ The request body should be a JSON object with the following parameters:
 |                       |           | empty.                                              |
 +-----------------------+-----------+-----------------------------------------------------+
 
+.. _example-usage-5:
+
+Example Usage
+^^^^^^^^^^^^^
+
+To process and preview file data, you can use the following example cURL command:
+
+.. code:: bash
+
+   curl -X POST \
+     -H "Content-Type: application/json" \
+     -d '{
+       "filename": "example.csv",
+       "column_separator": ",",
+       "selected_columns": {
+         "column1": "value1",
+         "column2": "value2"
+       },
+       "has_header": true,
+       "file_quotes": "double"
+     }' \
+     http://ip_address:9000/api/v1/preview-file
+
 .. _response-5:
 
 Response
