@@ -66,14 +66,14 @@ Endpoint
 Parameters
 ~~~~~~~~~~
 
-+-------------+------+-------------------------------------------------+
-| Name        | Type | Description                                     |
-+=============+======+=================================================+
-| `filename` | string   | The name of the file to retrieve the sample from |
-+-------------+------+-------------------------------------------------+
-| ``li        | nu   | The number of lines to include in the sample.   |
-| nes_count`` | mber | (Default: 1000)                                 |
-+-------------+------+-------------------------------------------------+
++-----------------+----------+---------------------------------------------------+
+| Name            | Type     | Description                                       |
++=================+==========+===================================================+
+| ``filename``    | string   | The name of the file to retrieve the sample from  |
++-----------------+----------+---------------------------------------------------+
+| ``lines_count`` | number   | The number of lines to include in the sample.     |
+|                 |          | (Default: 1000)                                   |
++-----------------+----------+---------------------------------------------------+
 
 .. _response-1:
 
@@ -275,32 +275,26 @@ Request Body
 
 The request body should be a JSON object with the following parameters:
 
-+----------+----+-----------------------------------------------------+
-| P        | Ty | Description                                         |
-| arameter | pe |                                                     |
-+==========+====+=====================================================+
-| ``fi     | st | The name of the file to process.                    |
-| lename`` | ri |                                                     |
-|          | ng |                                                     |
-+----------+----+-----------------------------------------------------+
-| ``co     | st | The separator used to separate columns in the file. |
-| lumn_sep | ri |                                                     |
-| arator`` | ng |                                                     |
-+----------+----+-----------------------------------------------------+
-| ``se     | ob | A map of selected columns to process, where the     |
-| lected_c | je | keys represent the original column names and the    |
-| olumns`` | ct | values represent the desired column names.          |
-+----------+----+-----------------------------------------------------+
-| ``has_   | b  | Indicates whether the file has a header row. Set to |
-| header`` | oo | ``true`` if the file includes a header row, or      |
-|          | le | ``false`` if not.                                   |
-|          | an |                                                     |
-+----------+----+-----------------------------------------------------+
-| ``file_  | st | Optional. The type of quotes used in the file. Set  |
-| quotes`` | ri | to “simple” for single quotes (’) or “double” for   |
-|          | ng | double quotes (“). If not provided, quotes will be  |
-|          |    | empty.                                              |
-+----------+----+-----------------------------------------------------+
++-----------------------+-----------+-----------------------------------------------------+
+| Parameter             | Type      | Description                                         |
++=======================+===========+=====================================================+
+| ``filename``          | string    | The name of the file to process.                    |
++-----------------------+-----------+-----------------------------------------------------+
+| ``column_separator``  | string    | The separator used to separate columns in the file. |
++-----------------------+-----------+-----------------------------------------------------+
+| ``selected_columns``  | object    | A map of selected columns to process, where the     |
+|                       |           | keys represent the original column names and the    |
+|                       |           | values represent the desired column names.          |
++-----------------------+-----------+-----------------------------------------------------+
+| ``has_header``        | boolean   | Indicates whether the file has a header row. Set to |
+|                       |           | ``true`` if the file includes a header row, or      |
+|                       |           | ``false`` if not.                                   |
++-----------------------+-----------+-----------------------------------------------------+
+| ``file_quotes``       | string    | Optional. The type of quotes used in the file. Set  |
+|                       |           | to “simple” for single quotes (’) or “double” for   |
+|                       |           | double quotes (“). If not provided, quotes will be  |
+|                       |           | empty.                                              |
++-----------------------+-----------+-----------------------------------------------------+
 
 .. _response-5:
 
