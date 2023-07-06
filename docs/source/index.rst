@@ -7,11 +7,13 @@ and their usage in the API.
 Table of Contents
 -----------------
 
--  `Raw Files Action <#raw-files-action>`__
--  `File Sample Action <#file-sample-action>`__
--  `Get All Files Action <#get-all-files-action>`__
--  `Get File Action <#get-file-action>`__
--  `Get All Columns Action <#get-all-columns-action>`__
+-  `Get raw files list <#get-raw-files-list>`__
+-  `Get file sample <#get-file-sample>`__
+-  `Get all files <#get-all-files>`__
+-  `Get a single file <#get-a-single-file>`__
+-  `Get all columns <#get-all-columns>`__
+-  `Process and preview file data <#process-and-preview-file-data>`__
+
 
 --------------
 
@@ -254,4 +256,78 @@ Example Response
        "aggregate_on": false,
        "display": true
      }
+   ]
+
+6. Process and preview file data
+-----------------------------
+
+This API endpoint processes the data from a file, performs necessary
+transformations, and returns a preview of the processed data.
+
+.. _endpoint-5:
+
+Endpoint
+~~~~~~~~
+
+``POST /api/v1/preview-file``
+
+Request Body
+~~~~~~~~~~~~
+
+The request body should be a JSON object with the following parameters:
+
++----------+----+-----------------------------------------------------+
+| P        | Ty | Description                                         |
+| arameter | pe |                                                     |
++==========+====+=====================================================+
+| ``fi     | st | The name of the file to process.                    |
+| lename`` | ri |                                                     |
+|          | ng |                                                     |
++----------+----+-----------------------------------------------------+
+| ``co     | st | The separator used to separate columns in the file. |
+| lumn_sep | ri |                                                     |
+| arator`` | ng |                                                     |
++----------+----+-----------------------------------------------------+
+| ``se     | ob | A map of selected columns to process, where the     |
+| lected_c | je | keys represent the original column names and the    |
+| olumns`` | ct | values represent the desired column names.          |
++----------+----+-----------------------------------------------------+
+| ``has_   | b  | Indicates whether the file has a header row. Set to |
+| header`` | oo | ``true`` if the file includes a header row, or      |
+|          | le | ``false`` if not.                                   |
+|          | an |                                                     |
++----------+----+-----------------------------------------------------+
+| ``file_  | st | Optional. The type of quotes used in the file. Set  |
+| quotes`` | ri | to “simple” for single quotes (’) or “double” for   |
+|          | ng | double quotes (“). If not provided, quotes will be  |
+|          |    | empty.                                              |
++----------+----+-----------------------------------------------------+
+
+.. _response-5:
+
+Response
+~~~~~~~~
+
+The response will be a JSON array containing the following elements:
+
+-  ``checkboxes_html``: HTML representation of checkboxes for selected
+   columns.
+-  ``preview_data_html``: HTML representation of the preview data.
+-  ``columns_map_table_html``: HTML representation of the table mapping
+   original column names to desired column names.
+
+.. _example-response-5:
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code:: json
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   [
+     "checkboxes_html",
+     "preview_data_html",
+     "columns_map_table_html"
    ]
