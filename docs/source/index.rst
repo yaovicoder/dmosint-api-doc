@@ -69,8 +69,7 @@ Parameters
 +-------------+------+-------------------------------------------------+
 | Name        | Type | Description                                     |
 +=============+======+=================================================+
-| `           | st   | The name of the file to retrieve the sample     |
-| `filename`` | ring | from.                                           |
+| `filename` | string   | The name of the file to retrieve the sample from |
 +-------------+------+-------------------------------------------------+
 | ``li        | nu   | The number of lines to include in the sample.   |
 | nes_count`` | mber | (Default: 1000)                                 |
