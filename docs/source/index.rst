@@ -22,21 +22,40 @@ Table of Contents
 
 Return list of files to be imported.
 
+.. _endpoint-1:
+
 Endpoint
 ~~~~~~~~
 
-``GET /api/v1/raw-files``
+``GET /api/v1/get-raw-files``
+
+.. _parameters-1:
 
 Parameters
 ~~~~~~~~~~
 
 None
 
+.. _usage-1:
+
+Usage
+~~~~~
+
+To get the list of files tobe imported, you can use the following example cURL command:
+
+.. code:: bash
+
+   curl -X GET http://ip_address:9000/api/v1/get-raw-files
+
+.. _response-1:
+
 Response
 ~~~~~~~~
 
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
+
+.. _example-response-1:
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -54,14 +73,14 @@ Example Response
 
 Retrieve a sample of a file.
 
-.. _endpoint-1:
+.. _endpoint-2:
 
 Endpoint
 ~~~~~~~~
 
 ``GET /api/v1/file-sample/:filename?lines_count=:lines_count``
 
-.. _parameters-1:
+.. _parameters-2:
 
 Parameters
 ~~~~~~~~~~
@@ -75,7 +94,7 @@ Parameters
 |                 |          | (Default: 1000)                                   |
 +-----------------+----------+---------------------------------------------------+
 
-.. _response-1:
+.. _response-2:
 
 Response
 ~~~~~~~~
@@ -83,7 +102,7 @@ Response
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
 
-.. _example-response-1:
+.. _example-response-2:
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -97,21 +116,32 @@ Example Response
 
 Retrieve all files sorted by name.
 
-.. _endpoint-2:
+.. _endpoint-3:
 
 Endpoint
 ~~~~~~~~
 
 ``GET /api/v1/get-files-all``
 
-.. _parameters-2:
+.. _parameters-3:
 
 Parameters
 ~~~~~~~~~~
 
 None
 
-.. _response-2:
+.. _usage-3:
+
+Usage
+~~~~~
+
+To get the list of all imported files sorted by name, you can use the following example cURL command:
+
+.. code:: bash
+
+   curl -X GET http://ip_address:9000/api/v1/get-columns-all
+
+.. _response-3:
 
 Response
 ~~~~~~~~
@@ -119,7 +149,7 @@ Response
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
 
-.. _example-response-2:
+.. _example-response-3:
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -158,14 +188,14 @@ Example Response
 
 Retrieve a file by its ID.
 
-.. _endpoint-3:
+.. _endpoint-4:
 
 Endpoint
 ~~~~~~~~
 
 ``GET /api/v1/get-file/:file_id``
 
-.. _parameters-3:
+.. _parameters-4:
 
 Parameters
 ~~~~~~~~~~
@@ -176,7 +206,7 @@ Name        Type   Description
 ``file_id`` string The ID of the file to retrieve.
 =========== ====== ===============================
 
-.. _response-3:
+.. _response-4:
 
 Response
 ~~~~~~~~
@@ -184,7 +214,7 @@ Response
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
 
-.. _example-response-3:
+.. _example-response-4:
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -209,21 +239,21 @@ Example Response
 
 Retrieve all columns sorted by name.
 
-.. _endpoint-4:
+.. _endpoint-5:
 
 Endpoint
 ~~~~~~~~
 
 ``GET /api/v1/get-columns-all``
 
-.. _parameters-4:
+.. _parameters-5:
 
 Parameters
 ~~~~~~~~~~
 
 None
 
-.. _response-4:
+.. _response-5:
 
 Response
 ~~~~~~~~
@@ -231,7 +261,7 @@ Response
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
 
-.. _example-response-4:
+.. _example-response-5:
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -263,7 +293,7 @@ Example Response
 This API endpoint processes the data from a file, performs necessary
 transformations, and returns a preview of the processed data.
 
-.. _endpoint-5:
+.. _endpoint-6:
 
 Endpoint
 ~~~~~~~~
@@ -296,7 +326,7 @@ The request body should be a JSON object with the following parameters:
 |                       |           | empty.                                              |
 +-----------------------+-----------+-----------------------------------------------------+
 
-.. _example-usage-5:
+.. _example-usage-6:
 
 Example Usage
 ^^^^^^^^^^^^^
@@ -309,14 +339,14 @@ To process and preview file data, you can use the following example cURL command
      -H "Content-Type: application/json" \
      -d '{
        "filename": "disqus_clean.txt",
-       "column_separator": ",",
+       "column_separator": "",
        "selected_columns": {},
-       "has_header": true,
+       "has_header": false,
        "file_quotes": "double"
      }' \
      http://ip_address:9000/api/v1/preview-file
 
-.. _response-5:
+.. _response-6:
 
 Response
 ~~~~~~~~
@@ -329,7 +359,7 @@ The response will be a JSON array containing the following elements:
 -  ``columns_map_table_html``: HTML representation of the table mapping
    original column names to desired column names.
 
-.. _example-response-5:
+.. _example-response-6:
 
 Example Response
 ^^^^^^^^^^^^^^^^
