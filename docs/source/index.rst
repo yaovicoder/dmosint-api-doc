@@ -308,12 +308,9 @@ To process and preview file data, you can use the following example cURL command
    curl -X POST \
      -H "Content-Type: application/json" \
      -d '{
-       "filename": "example.csv",
+       "filename": "disqus_clean.txt",
        "column_separator": ",",
-       "selected_columns": {
-         "column1": "value1",
-         "column2": "value2"
-       },
+       "selected_columns": {},
        "has_header": true,
        "file_quotes": "double"
      }' \
