@@ -120,12 +120,85 @@ Example Response Body
 
 .. _records-column-get-all:
 
-1.1.2. Get all columns
+1.1.2. Get a column
+-------------------
+This API endpoint retrieves a column by its ID.
+
+.. _records-column-get-endpoint:
+
+Endpoint
+~~~~~~~~
+
+The Get Column endpoint retrieves a column based on its ID.
+
+``GET /api/v1/get-column/column_id``
+
+.. _records-column-get-parameters:
+
+Parameters
+~~~~~~~~~~
+
+The endpoint expects the following parameter:
+
+============== ====== =================================
+Name           Type   Description
+============== ====== =================================
+``column_id`` string The ID of the column to retrieve.
+============== ====== =================================
+
+.. _records-column-get-response:
+
+Response
+~~~~~~~~
+
+- Error - Column Not Found:
+
+  The response will be a 404 Not Found status.
+
+- Error - Internal Server Error:
+
+  The response will be a 500 Internal Server Error status.
+
+
+.. _records-column-get-example-response:
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+- Success - Column Found:
+
+  Example Response Body:
+  .. code:: json
+
+     {
+       "status": "success",
+       "code": 200,
+       "message": "Column successfully retrieved.",
+       "column": {
+         "column_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+         "column_name": "column_name",
+         "partition": null,
+         "ordering": null,
+         "aggregate_on": null,
+         "display": true
+       }
+     }
+
+- Example Response (Error - Column Not Found):
+HTTP/1.1 404 Not Found
+
+- Example Response (Error - Internal Server Error):
+HTTP/1.1 500 Internal Server Error
+
+
+.. _records-column-get-all:
+
+1.1.3. Get all columns
 ----------------------
 
-Retrieve all columns sorted by name.
+This API endpoint retrieves all columns sorted by name.
 
-.. _get-all-columns-endpoint:
+.. _records-column-get-all-endpoint:
 
 Endpoint
 ~~~~~~~~
@@ -158,7 +231,7 @@ Response
 -  HTTP Status Code: 200 OK
 -  Content-Type: application/json
 
-.. _records-column-get-all-response:
+.. _records-column-get-all-example-response:
 
 Example Response
 ^^^^^^^^^^^^^^^^
