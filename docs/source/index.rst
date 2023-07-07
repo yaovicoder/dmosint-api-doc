@@ -78,7 +78,7 @@ Retrieve a sample of a file.
 Endpoint
 ~~~~~~~~
 
-``GET /api/v1/file-sample/:filename?lines_count=:lines_count``
+``GET /api/v1/file-sample/filename/lines_count``
 
 .. _parameters-2:
 
