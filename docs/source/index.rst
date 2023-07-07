@@ -168,6 +168,7 @@ Example Response
 - Success - Column Found:
 
   Example Response Body:
+
   .. code:: json
 
      {
