@@ -103,7 +103,7 @@ To get a sample of a file, you can use the following example cURL command:
 
 .. code:: bash
 
-   curl -X GET http://192.168.1.20:9000/api/v1/get-sample/edmo.txt/1000
+   curl -X GET http://ip_address:9000/api/v1/get-sample/file1.txt/1000
 
 .. _response-2:
 
@@ -360,7 +360,7 @@ To process and preview file data, you can use the following example cURL command
    curl -X POST \
      -H "Content-Type: application/json" \
      -d '{
-       "filename": "disqus_clean.txt",
+       "filename": "file1.txt",
        "column_separator": "",
        "selected_columns": {},
        "has_header": false,
