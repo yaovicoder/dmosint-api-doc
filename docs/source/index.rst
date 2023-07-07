@@ -94,6 +94,17 @@ Parameters
 |                 |          | (Default: 1000)                                   |
 +-----------------+----------+---------------------------------------------------+
 
+.. _usage-2:
+
+Usage
+~~~~~
+
+To get a sample of a file, you can use the following example cURL command:
+
+.. code:: bash
+
+   curl -X GET http://192.168.1.20:9000/api/v1/get-sample/edmo.txt/1000
+
 .. _response-2:
 
 Response
