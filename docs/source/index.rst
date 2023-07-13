@@ -659,10 +659,10 @@ The request body should be a JSON object with the following required parameters:
 |                       |           | double quotes (“). If not provided, quotes will be  |
 |                       |           | empty.                                              |
 +-----------------------+-----------+-----------------------------------------------------+
-| ``do_update ``        | Boolean   | Indicates whether the file should update existing   |
+| ``do_update``        | Boolean   | Indicates whether the file should update existing   |
 |                       |           | file a header row.                                  | 
 +-----------------------+-----------+-----------------------------------------------------+
-| ``delete_src ``       | Boolean   | Indicates whether the source file should be deleted |
+| ``delete_src``       | Boolean   | Indicates whether the source file should be deleted |
 |                       |           | nce operation has completed or not.                 | 
 +-----------------------+-----------+-----------------------------------------------------+
 
