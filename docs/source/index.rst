@@ -701,6 +701,7 @@ The response will vary based on the outcome of the request:
   Example Response Body:
 
 .. code:: json
+
      {
        "status": "success",
        "code": 200,
@@ -714,9 +715,10 @@ The response will vary based on the outcome of the request:
 
 - Error - Invalid Request Payload:
 
-  Example Response Body:
+  Example Response Body
   
 .. code:: json
+
      {
        "status": "error",
        "code": 400,
@@ -728,9 +730,10 @@ The response will vary based on the outcome of the request:
 
 - Error - Internal Server Error:
 
-  Example Response Body:
+  Example Response Body
 
 .. code:: json
+
      {
        "status": "error",
        "code": 500,
