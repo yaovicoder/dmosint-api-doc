@@ -612,4 +612,184 @@ Example Response
      "columns_map_table_html"
    ]
 
+.. _storage-post-file-data:
+
+2.1.4. Post File Data
+---------------------
+
+This API endpoint processes file import.
+
+
+.. _storage-post-file-data-endpoint:
+
+Endpoint
+~~~~~~~~
+The Post File endpoint processes the file import.
+
+``POST /api/v1/post-file-data``
+
+Request Body
+~~~~~~~~~~~~
+
+The request body should be a JSON object with the following required parameters:
+
++-----------------------+-----------+-----------------------------------------------------+
+| Parameter             | Type      | Description                                         |
++=======================+===========+=====================================================+
+| ``filename``          | string    | The name (with extension) of the file to process.   |
++-----------------------+-----------+-----------------------------------------------------+
+| ``db_index``          | string    | This is the name that the user has defined for the  |
+|                       |           | processed file. By default, this field should be    |
+|                       |           | filled with the value of filename without the       |
+|                       |           | extension, but the user can define it according to  |
+|                       |           | his preference.                                     |
++-----------------------+-----------+-----------------------------------------------------+
+| ``column_separator``  | string    | The separator used to separate columns in the file. |
++-----------------------+-----------+-----------------------------------------------------+
+| ``selected_columns``  | object    | A map of selected columns to process, where the     |
+|                       |           | keys represent the original column names and the    |
+|                       |           | values represent the desired column names.          |
++-----------------------+-----------+-----------------------------------------------------+
+| ``has_header``        | Boolean   | Indicates whether the file has a header row. Set to |
+|                       |           | ``true`` if the file includes a header row, or      |
+|                       |           | ``false`` if not.                                   |
++-----------------------+-----------+-----------------------------------------------------+
+| ``file_quotes``       | string    | Optional. The type of quotes used in the file. Set  |
+|                       |           | to “simple” for single quotes (’) or “double” for   |
+|                       |           | double quotes (“). If not provided, quotes will be  |
+|                       |           | empty.                                              |
++-----------------------+-----------+-----------------------------------------------------+
+| ``do_update ``        | Boolean   | Indicates whether the file should update existing   |
+|                       |           | file a header row.                                  | 
++-----------------------+-----------+-----------------------------------------------------+
+| ``delete_src ``       | Boolean   | Indicates whether the source file should be deleted |
+|                       |           | nce operation has completed or not.                 | 
++-----------------------+-----------+-----------------------------------------------------+
+
+.. _storage-post-file-data-example-usage:
+
+Example Usage
+^^^^^^^^^^^^^
+
+To import a file, send a POST request to the endpoint with the required parameters:
+
+.. code:: bash
+
+      curl -X POST -H "Content-Type: application/json" -d '{
+     "filename": "file_name.csv",
+     "column_separator": ",",
+     "selected_columns": {
+       "column1": "header1",
+       "column2": "header2"
+     },
+     "has_header": true,
+     "file_quotes": "double",
+     "do_update": true,
+     "delete_src": false,
+     "db_index": "db_index"
+   }' http://ip_address:9000/api/v1/post-file-data
+
+.. _storage-post-file-data-response:
+
+Response
+~~~~~~~~
+
+The response will vary based on the outcome of the request:
+
+- Success:
+
+  Example Response Body:
+
+.. code:: json
+     {
+       "status": "success",
+       "code": 200,
+       "message": "Request successful.",
+       "data": {
+         "filename": "file_name",
+         "job_type": "IMPORT",
+         "initial_message": "IMPORT OF FILE file_name IN PROGRESS..."
+       }
+     }
+
+- Error - Invalid Request Payload:
+
+  Example Response Body:
+  
+.. code:: json
+     {
+       "status": "error",
+       "code": 400,
+       "message": "Invalid request payload.",
+       "errors": {
+         "validation_errors": "Error message"
+       }
+     }
+
+- Error - Internal Server Error:
+
+  Example Response Body:
+
+.. code:: json
+     {
+       "status": "error",
+       "code": 500,
+       "message": "An error occurred: Error message"
+     }
+
+
+.. _storage-post-file-data-example-response:
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+- Example Response (Success):
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+.. code:: json
+
+   {
+     "status": "success",
+     "code": 200,
+     "message": "Request successful.",
+     "data": {
+       "filename": "db_index-0",
+       "job_type": "IMPORT",
+       "initial_message": "IMPORT OF FILE db_index-0 IN PROGRESS..."
+     }
+   }
+
+- Example Response (Error - Invalid Request Payload):
+
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+.. code:: json
+
+   {
+     "status": "error",
+     "code": 400,
+     "message": "Invalid request payload.",
+     "errors": {
+       "validation_errors": "Error message"
+     }
+   }
+
+- Example Response (Error - Internal Server Error):
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+.. code:: json
+
+   {
+     "status": "error",
+     "code": 500,
+     "message": "An error occurred: Error message"
+   }
+
+
+
 
